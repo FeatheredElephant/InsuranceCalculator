@@ -1,6 +1,7 @@
 package app.model.domains;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class InsurancePlan {
 	int planId;
@@ -49,4 +50,28 @@ public class InsurancePlan {
 	public void setTotalMonthlyCost(BigDecimal totalMonthlyCost) {
 		this.totalMonthlyCost = totalMonthlyCost;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(planId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		InsurancePlan other = (InsurancePlan) obj;
+		return planId == other.planId;
+	}
+
+	@Override
+	public String toString() {
+		return "InsurancePlan [planId=" + planId + ", agent=" + agent + ", startDate=" + startDate + ", endDate="
+				+ endDate + ", totalMonthlyCost=" + totalMonthlyCost + "]";
+	}
+	
 }

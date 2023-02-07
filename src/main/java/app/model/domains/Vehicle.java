@@ -1,5 +1,7 @@
 package app.model.domains;
 
+import java.util.Objects;
+
 public class Vehicle {
 	int vin;
 	int year;
@@ -15,6 +17,7 @@ public class Vehicle {
 		this.model = model;
 		this.insurancePlan = insurancePlan;
 	}
+	
 	public int getVin() {
 		return vin;
 	}
@@ -45,4 +48,28 @@ public class Vehicle {
 	public void setInsurancePlan(InsurancePlan insurancePlan) {
 		this.insurancePlan = insurancePlan;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(vin);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vehicle other = (Vehicle) obj;
+		return vin == other.vin;
+	}
+
+	@Override
+	public String toString() {
+		return "Vehicle [vin=" + vin + ", year=" + year + ", mileage=" + mileage + ", model=" + model
+				+ ", insurancePlan=" + insurancePlan + "]";
+	}
+	
 }
