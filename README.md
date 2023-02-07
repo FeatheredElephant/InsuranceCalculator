@@ -1,4 +1,4 @@
-# InsuranceCaluclator
+# InsuranceCalculator
 SolvdLaba group project
 
 asdf
