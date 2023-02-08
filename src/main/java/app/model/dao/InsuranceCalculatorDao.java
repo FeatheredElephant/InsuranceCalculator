@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import app.IOManager;
 
-public abstract class InsuranceCalculatorDao<T> implements Dao<T> {
+public abstract class InsuranceCalculatorDao<T>{
 	private SqlSessionFactory factory;
 	protected IOManager io = IOManager.getInstance();
 	
@@ -28,9 +28,5 @@ public abstract class InsuranceCalculatorDao<T> implements Dao<T> {
 
 	public SqlSession getSession() {
 		return factory.openSession();
-	}
-	
-	public boolean releaseSession(SqlSession session) {
-		return false;
 	}
 }

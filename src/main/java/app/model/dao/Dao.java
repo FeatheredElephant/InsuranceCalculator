@@ -3,9 +3,9 @@ package app.model.dao;
 import java.util.List;
 
 public interface Dao<T> {
-	void create(T type);
-	T read(int id);
-	void update(T type);
-	void delete(int id);
-	List<T> readAll();
+	public void create(T type);
+	public T read(int id);
+	public void update(T type);
+	public void delete(int id);
+	public List<T> readAll();
 }
