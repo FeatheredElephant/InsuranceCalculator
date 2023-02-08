@@ -19,21 +19,17 @@ public class LoginView {
         Scanner input = new Scanner(System.in);
 
         LOGGER.info("Enter email:");
-        System.out.println("Enter email:");
         String email = input.nextLine();
 
         LOGGER.info("Enter password:");
-        System.out.println("Enter password");
         String password = input.nextLine();
 
         boolean isLogin = LoginHandler.login(email, password);
 
         if (isLogin) {
             LOGGER.info("You are logged into your account");
-            System.out.println("You are logged into your account.");
         } else {
             LOGGER.info("Wrong username and password combination.");
-            System.out.println("Wrong username and password combination.");
         }
     }
 }
