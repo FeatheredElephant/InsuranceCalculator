@@ -1,5 +1,7 @@
 package app.model.domains;
 
+import java.util.Objects;
+
 public class Model {
 	int modelId;
 	Brand brand;
@@ -30,4 +32,27 @@ public class Model {
 	public void setBasePlan(BasePlan basePlan) {
 		this.basePlan = basePlan;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(modelId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Model other = (Model) obj;
+		return modelId == other.modelId;
+	}
+
+	@Override
+	public String toString() {
+		return "Model [modelId=" + modelId + ", brand=" + brand + ", basePlan=" + basePlan + "]";
+	}
+	
 }
