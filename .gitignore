@@ -1,4 +1,5 @@
 target/
+logs/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -11,3 +12,4 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 .project
 .classpath
+.settings/
