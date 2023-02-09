@@ -2,7 +2,7 @@ package app.model.domains;
 
 import java.util.Objects;
 
-public class Ticket {
+public class Ticket extends Domain{
 	private int ticketId;
 	private int points;
 	private Driver driver;

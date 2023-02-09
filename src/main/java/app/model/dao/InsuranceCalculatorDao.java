@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import app.IOManager;
 
-public abstract class InsuranceCalculatorDao<T>{
+public abstract class InsuranceCalculatorDao<T> implements Dao<T>{
 	private SqlSessionFactory factory;
 	protected IOManager io = IOManager.getInstance();
 	

@@ -2,7 +2,7 @@ package app.model.domains;
 
 import java.util.Objects;
 
-public class Vehicle {
+public class Vehicle extends Domain{
 	int vin;
 	int year;
 	float mileage;

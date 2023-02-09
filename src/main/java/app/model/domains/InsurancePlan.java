@@ -3,7 +3,7 @@ package app.model.domains;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class InsurancePlan {
+public class InsurancePlan extends Domain{
 	int planId;
 	Agent agent;
 	String startDate;
