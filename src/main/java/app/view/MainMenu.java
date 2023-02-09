@@ -19,7 +19,7 @@ public class MainMenu {
             case "customer":
                 customerMenu = new CustomerMenu();
                 do {
-                    customerMenu.viewOptions();
+                    customerMenu.view();
                     option = scanner.next();
                     customerMenu.selectOption(option);
                 } while (!option.equals("0"));
@@ -28,7 +28,7 @@ public class MainMenu {
             case "agent":
                 agentMenu = new AgentMenu();
                 do {
-                    agentMenu.viewOptions();
+                    agentMenu.view();
                     option = scanner.next();
                     agentMenu.selectOption(option);
                 } while (!option.equals("0"));

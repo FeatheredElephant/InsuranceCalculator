@@ -1,6 +1,5 @@
 package app.view;
 
-public interface IMenu {
-     void viewOptions();
-     void selectOption(String option);
+public interface IMenu extends IView{
+     public void selectOption(String option);
 }

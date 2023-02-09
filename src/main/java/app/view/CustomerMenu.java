@@ -5,10 +5,10 @@ import app.exception.InvalidOptionSelectedException;
 
 public class CustomerMenu implements IMenu{
 
-    IOManager io = IOManager.getInstance();
-
+    private static IOManager io = IOManager.getInstance();
+    
     @Override
-    public void viewOptions() {
+    public void view() {
         io.println("1 - View policy details");
         io.println("2 - View driver information");
         io.println("3 - Change driver information");
