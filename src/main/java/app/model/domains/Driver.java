@@ -2,7 +2,7 @@ package app.model.domains;
 
 import java.util.Objects;
 
-public class Driver {
+public class Driver extends Domain{
 	private int driverId;
 	private String startDate;
 	private Customer customer;

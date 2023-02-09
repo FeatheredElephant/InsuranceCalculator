@@ -3,7 +3,7 @@ package app.model.domains;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Accident {
+public class Accident extends Domain{
 	int accidentId;
 	BigDecimal damages;
 	Vehicle vehicle;

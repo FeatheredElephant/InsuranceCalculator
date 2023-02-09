@@ -3,7 +3,7 @@ package app.model.domains;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Payment {
+public class Payment extends Domain{
 	private int paymentId;
 	private Customer customer;
 	private String paymentDate;

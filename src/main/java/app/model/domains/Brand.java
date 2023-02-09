@@ -2,7 +2,7 @@ package app.model.domains;
 
 import java.util.Objects;
 
-public class Brand {
+public class Brand extends Domain{
 	int brandId;
 	String brandName;
 	
