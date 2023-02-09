@@ -8,6 +8,8 @@ public class Vehicle extends Domain{
 	float mileage;
 	int modelId;
 	InsurancePlan insurancePlan;
+
+	public Vehicle(){}
 	
 	public Vehicle(int vin, int year, float mileage, int modelId, InsurancePlan insurancePlan) {
 		super();

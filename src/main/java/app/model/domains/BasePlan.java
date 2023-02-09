@@ -8,6 +8,8 @@ public class BasePlan extends Domain{
 	private BigDecimal monthlyCost;
 	private BigDecimal coverageAmount;
 
+	public BasePlan(){}
+
 	public BasePlan(String planName, BigDecimal monthlyCost, BigDecimal coverageAmount) {
 		super();
 		this.planName = planName;

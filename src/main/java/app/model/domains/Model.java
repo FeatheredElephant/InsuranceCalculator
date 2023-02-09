@@ -6,6 +6,8 @@ public class Model extends Domain{
 	int modelId;
 	int brandId;
 	int basePlanId;
+
+	public Model(){}
 	
 	public Model(int modelId, int brand, int basePlan) {
 		super();

@@ -8,6 +8,8 @@ public class Payment extends Domain{
 	private int customerId;
 	private String paymentDate;
 	private BigDecimal amount;
+
+	public Payment(){}
 	
 	public Payment(int paymentId, int customerId, String paymentDate, BigDecimal amount) {
 		super();

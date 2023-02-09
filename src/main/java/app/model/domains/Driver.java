@@ -6,6 +6,8 @@ public class Driver extends Domain{
 	private int driverId;
 	private String startDate;
 	private int customerId;
+
+	public Driver(){}
 	
 	public Driver(int driverId, String startDate, int customerId) {
 		super();

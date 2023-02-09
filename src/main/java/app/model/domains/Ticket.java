@@ -7,6 +7,8 @@ public class Ticket extends Domain{
 	private int points;
 	private int driverId;
 	private String dateReceived;
+
+	public Ticket(){}
 	
 	public Ticket(int ticketId, int points, int driverId, String dateReceived) {
 		super();

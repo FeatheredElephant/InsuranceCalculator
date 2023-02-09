@@ -5,6 +5,8 @@ import java.util.Objects;
 public class Brand extends Domain{
 	int brandId;
 	String brandName;
+
+	public Brand(){}
 	
 	public Brand(int brandId, String brandName) {
 		super();

@@ -9,6 +9,8 @@ public class InsurancePlan extends Domain{
 	String startDate;
 	String endDate;
 	BigDecimal totalMonthlyCost;
+
+	public InsurancePlan(){}
 	
 	
 	public InsurancePlan(int planId, Agent agent, String startDate, String endDate, BigDecimal totalMonthlyCost) {

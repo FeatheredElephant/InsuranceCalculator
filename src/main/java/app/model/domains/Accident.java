@@ -9,6 +9,8 @@ public class Accident extends Domain{
 	int vehicleId;
 	int driverId;
 
+	public Accident(){}
+
 	public Accident(int accidentId, BigDecimal damages, int vehicleId, int driverId) {
 		super();
 		this.accidentId = accidentId;
