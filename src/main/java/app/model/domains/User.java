@@ -5,7 +5,9 @@ public class User extends Domain{
 	private String email;
 	private String password;
 	private String name;
-	
+
+	public User(){}
+
 	public User(int userId, String email, String password, String name) {
 		super();
 		setId(userId);

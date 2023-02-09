@@ -5,15 +5,17 @@ import java.util.Objects;
 public class Ticket extends Domain{
 	private int ticketId;
 	private int points;
-	private Driver driver;
-	private String dateRecieved;
+	private int driverId;
+	private String dateReceived;
+
+	public Ticket(){}
 	
-	public Ticket(int ticketId, int points, Driver driver, String dateRecieved) {
+	public Ticket(int ticketId, int points, int driverId, String dateReceived) {
 		super();
 		this.ticketId = ticketId;
 		this.points = points;
-		this.driver = driver;
-		this.dateRecieved = dateRecieved;
+		this.driverId = driverId;
+		this.dateReceived = dateReceived;
 	}
 	
 	public int getTicketId() {
@@ -28,17 +30,17 @@ public class Ticket extends Domain{
 	public void setPoints(int points) {
 		this.points = points;
 	}
-	public Driver getDriver() {
-		return driver;
+	public int getDriverId() {
+		return driverId;
 	}
-	public void setDriver(Driver driver) {
-		this.driver = driver;
+	public void setDriverId(int driverId) {
+		this.driverId = driverId;
 	}
-	public String getDateRecieved() {
-		return dateRecieved;
+	public String getDateReceived() {
+		return dateReceived;
 	}
-	public void setDateRecieved(String dateRecieved) {
-		this.dateRecieved = dateRecieved;
+	public void setDateReceived(String dateReceived) {
+		this.dateReceived = dateReceived;
 	}
 	@Override
 	public int hashCode() {
@@ -57,8 +59,8 @@ public class Ticket extends Domain{
 	}
 	@Override
 	public String toString() {
-		return "Ticket [ticketId=" + ticketId + ", points=" + points + ", driver=" + driver + ", dateRecieved="
-				+ dateRecieved + "]";
+		return "Ticket [ticketId=" + ticketId + ", points=" + points + ", driver=" + driverId + ", dateRecieved="
+				+ dateReceived + "]";
 	}
 	
 }

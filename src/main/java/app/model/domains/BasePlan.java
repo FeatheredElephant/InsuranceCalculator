@@ -6,13 +6,15 @@ import java.util.Objects;
 public class BasePlan extends Domain{
 	private String planName;
 	private BigDecimal monthlyCost;
-	private BigDecimal converageAmount;
+	private BigDecimal coverageAmount;
 
-	public BasePlan(String planName, BigDecimal monthlyCost, BigDecimal converageAmount) {
+	public BasePlan(){}
+
+	public BasePlan(String planName, BigDecimal monthlyCost, BigDecimal coverageAmount) {
 		super();
 		this.planName = planName;
 		this.monthlyCost = monthlyCost;
-		this.converageAmount = converageAmount;
+		this.coverageAmount = coverageAmount;
 	}
 
 	public String getPlanName() {
@@ -31,17 +33,17 @@ public class BasePlan extends Domain{
 		this.monthlyCost = monthlyCost;
 	}
 
-	public BigDecimal getConverageAmount() {
-		return converageAmount;
+	public BigDecimal getCoverageAmount() {
+		return coverageAmount;
 	}
 
-	public void setConverageAmount(BigDecimal converageAmount) {
-		this.converageAmount = converageAmount;
+	public void setCoverageAmount(BigDecimal coverageAmount) {
+		this.coverageAmount = coverageAmount;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(converageAmount, monthlyCost, planName);
+		return Objects.hash(coverageAmount, monthlyCost, planName);
 	}
 
 	@Override
@@ -53,14 +55,14 @@ public class BasePlan extends Domain{
 		if (getClass() != obj.getClass())
 			return false;
 		BasePlan other = (BasePlan) obj;
-		return Objects.equals(converageAmount, other.converageAmount) && Objects.equals(monthlyCost, other.monthlyCost)
+		return Objects.equals(coverageAmount, other.coverageAmount) && Objects.equals(monthlyCost, other.monthlyCost)
 				&& Objects.equals(planName, other.planName);
 	}
 
 	@Override
 	public String toString() {
-		return "BasePlan [planName=" + planName + ", monthlyCost=" + monthlyCost + ", converageAmount="
-				+ converageAmount + "]";
+		return "BasePlan [planName=" + planName + ", monthlyCost=" + monthlyCost + ", coverageAmount="
+				+ coverageAmount + "]";
 	}
 
 }

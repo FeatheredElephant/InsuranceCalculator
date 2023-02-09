@@ -4,14 +4,16 @@ import java.util.Objects;
 
 public class Model extends Domain{
 	int modelId;
-	Brand brand;
-	BasePlan basePlan;
+	int brandId;
+	int basePlanId;
+
+	public Model(){}
 	
-	public Model(int modelId, Brand brand, BasePlan basePlan) {
+	public Model(int modelId, int brand, int basePlan) {
 		super();
 		this.modelId = modelId;
-		this.brand = brand;
-		this.basePlan = basePlan;
+		this.brandId = brand;
+		this.basePlanId = basePlan;
 	}
 	
 	public int getModelId() {
@@ -20,17 +22,17 @@ public class Model extends Domain{
 	public void setModelId(int modelId) {
 		this.modelId = modelId;
 	}
-	public Brand getBrandId() {
-		return brand;
+	public int getBrandId() {
+		return brandId;
 	}
-	public void setBrandId(Brand brand) {
-		this.brand = brand;
+	public void setBrandId(int brandId) {
+		this.brandId = brandId;
 	}
-	public BasePlan getBasePlan() {
-		return basePlan;
+	public int getBasePlanId() {
+		return basePlanId;
 	}
-	public void setBasePlan(BasePlan basePlan) {
-		this.basePlan = basePlan;
+	public void setBasePlanId(int basePlanId) {
+		this.basePlanId = basePlanId;
 	}
 
 	@Override
@@ -52,7 +54,7 @@ public class Model extends Domain{
 
 	@Override
 	public String toString() {
-		return "Model [modelId=" + modelId + ", brand=" + brand + ", basePlan=" + basePlan + "]";
+		return "Model [modelId=" + modelId + ", brand=" + brandId + ", basePlan=" + basePlanId + "]";
 	}
 	
 }

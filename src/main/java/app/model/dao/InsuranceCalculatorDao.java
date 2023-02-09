@@ -3,6 +3,7 @@ package app.model.dao;
 import java.io.InputStream;
 import java.util.Properties;
 
+import app.model.dao.daointerfaces.Dao;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,7 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import app.IOManager;
 
-public abstract class InsuranceCalculatorDao<T> implements Dao<T>{
+public abstract class InsuranceCalculatorDao<T> implements Dao<T> {
 	private SqlSessionFactory factory;
 	protected IOManager io = IOManager.getInstance();
 	

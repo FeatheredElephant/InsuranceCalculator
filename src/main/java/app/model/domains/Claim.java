@@ -7,6 +7,8 @@ public class Claim extends Domain{
 	Customer customer;
 	Accident accident;
 
+	public Claim(){}
+
 	public Claim(int claimId, Customer customer, Accident accident) {
 		super();
 		this.claimId = claimId;

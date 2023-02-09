@@ -6,15 +6,17 @@ public class Vehicle extends Domain{
 	int vin;
 	int year;
 	float mileage;
-	Model model;
+	int modelId;
 	InsurancePlan insurancePlan;
+
+	public Vehicle(){}
 	
-	public Vehicle(int vin, int year, float mileage, Model model, InsurancePlan insurancePlan) {
+	public Vehicle(int vin, int year, float mileage, int modelId, InsurancePlan insurancePlan) {
 		super();
 		this.vin = vin;
 		this.year = year;
 		this.mileage = mileage;
-		this.model = model;
+		this.modelId = modelId;
 		this.insurancePlan = insurancePlan;
 	}
 	
@@ -36,11 +38,11 @@ public class Vehicle extends Domain{
 	public void setMileage(float mileage) {
 		this.mileage = mileage;
 	}
-	public Model getModel() {
-		return model;
+	public int getModelId() {
+		return modelId;
 	}
-	public void setModel(Model model) {
-		this.model = model;
+	public void setModelId(int modelId) {
+		this.modelId = modelId;
 	}
 	public InsurancePlan getInsurancePlan() {
 		return insurancePlan;
@@ -68,7 +70,7 @@ public class Vehicle extends Domain{
 
 	@Override
 	public String toString() {
-		return "Vehicle [vin=" + vin + ", year=" + year + ", mileage=" + mileage + ", model=" + model
+		return "Vehicle [vin=" + vin + ", year=" + year + ", mileage=" + mileage + ", model=" + modelId
 				+ ", insurancePlan=" + insurancePlan + "]";
 	}
 	
