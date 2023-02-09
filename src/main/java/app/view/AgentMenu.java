@@ -8,7 +8,7 @@ public class AgentMenu implements IMenu {
     IOManager io = IOManager.getInstance();
 
     @Override
-    public void viewOptions() {
+    public void view() {
         io.println("1 - View active customers");
         io.println("2 - View sales history");
         io.println("3 - View policy options");
