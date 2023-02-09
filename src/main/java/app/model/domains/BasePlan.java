@@ -3,7 +3,7 @@ package app.model.domains;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class BasePlan {
+public class BasePlan extends Domain{
 	private String planName;
 	private BigDecimal monthlyCost;
 	private BigDecimal converageAmount;

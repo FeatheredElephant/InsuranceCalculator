@@ -2,7 +2,7 @@ package app.model.domains;
 
 import java.util.Objects;
 
-public class Claim {
+public class Claim extends Domain{
 	int claimId;
 	Customer customer;
 	Accident accident;
