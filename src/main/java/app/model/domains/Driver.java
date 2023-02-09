@@ -5,13 +5,13 @@ import java.util.Objects;
 public class Driver extends Domain{
 	private int driverId;
 	private String startDate;
-	private Customer customer;
+	private int customerId;
 	
-	public Driver(int driverId, String startDate, Customer customer) {
+	public Driver(int driverId, String startDate, int customerId) {
 		super();
 		this.driverId = driverId;
 		this.startDate = startDate;
-		this.customer = customer;
+		this.customerId = customerId;
 	}
 	
 	public int getDriverId() {
@@ -26,12 +26,13 @@ public class Driver extends Domain{
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public Customer getCustomer() {
-		return customer;
+	public int getCustomerId() {
+		return customerId;
 	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(driverId);
@@ -49,6 +50,6 @@ public class Driver extends Domain{
 	}
 	@Override
 	public String toString() {
-		return "Driver [driverId=" + driverId + ", startDate=" + startDate + ", customer=" + customer + "]";
+		return "Driver [driverId=" + driverId + ", startDate=" + startDate + ", customer=" + customerId + "]";
 	}	
 }

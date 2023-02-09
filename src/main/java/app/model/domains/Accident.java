@@ -6,14 +6,15 @@ import java.util.Objects;
 public class Accident extends Domain{
 	int accidentId;
 	BigDecimal damages;
-	Vehicle vehicle;
-	Driver driver;
-	public Accident(int accidentId, BigDecimal damages, Vehicle vehicle, Driver driver) {
+	int vehicleId;
+	int driverId;
+
+	public Accident(int accidentId, BigDecimal damages, int vehicleId, int driverId) {
 		super();
 		this.accidentId = accidentId;
 		this.damages = damages;
-		this.vehicle = vehicle;
-		this.driver = driver;
+		this.vehicleId = vehicleId;
+		this.driverId = driverId;
 	}
 	public int getAccidentId() {
 		return accidentId;
@@ -27,17 +28,17 @@ public class Accident extends Domain{
 	public void setDamages(BigDecimal damages) {
 		this.damages = damages;
 	}
-	public Vehicle getVehicle() {
-		return vehicle;
+	public int getVehicleId() {
+		return vehicleId;
 	}
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
+	public void setVehicleId(int vehicleId) {
+		this.vehicleId = vehicleId;
 	}
-	public Driver getDriver() {
-		return driver;
+	public int getDriverId() {
+		return driverId;
 	}
-	public void setDriver(Driver driver) {
-		this.driver = driver;
+	public void setDriverId(int driverId) {
+		this.driverId = driverId;
 	}
 	@Override
 	public int hashCode() {
@@ -56,7 +57,7 @@ public class Accident extends Domain{
 	}
 	@Override
 	public String toString() {
-		return "Accident [accidentId=" + accidentId + ", damages=" + damages + ", vehicle=" + vehicle + ", driver="
-				+ driver + "]";
+		return "Accident [accidentId=" + accidentId + ", damages=" + damages + ", vehicleId=" + vehicleId + ", driverId="
+				+ driverId + "]";
 	}
 }

@@ -5,14 +5,14 @@ import java.util.Objects;
 
 public class Payment extends Domain{
 	private int paymentId;
-	private Customer customer;
+	private int customerId;
 	private String paymentDate;
 	private BigDecimal amount;
 	
-	public Payment(int paymentId, Customer customer, String paymentDate, BigDecimal amount) {
+	public Payment(int paymentId, int customerId, String paymentDate, BigDecimal amount) {
 		super();
 		this.paymentId = paymentId;
-		this.customer = customer;
+		this.customerId = customerId;
 		this.paymentDate = paymentDate;
 		this.amount = amount;
 	}
@@ -25,12 +25,12 @@ public class Payment extends Domain{
 		this.paymentId = paymentId;
 	}
 
-	public Customer getCustomerId() {
-		return customer;
+	public int getCustomerId() {
+		return customerId;
 	}
 
-	public void setCustomerId(Customer customer) {
-		this.customer = customer;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getPaymentDate() {
@@ -68,7 +68,7 @@ public class Payment extends Domain{
 
 	@Override
 	public String toString() {
-		return "Payment [paymentId=" + paymentId + ", customer=" + customer + ", paymentDate=" + paymentDate
+		return "Payment [paymentId=" + paymentId + ", customer=" + customerId + ", paymentDate=" + paymentDate
 				+ ", amount=" + amount + "]";
 	}
 }

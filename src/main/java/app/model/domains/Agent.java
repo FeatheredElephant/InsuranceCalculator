@@ -16,6 +16,6 @@ public class Agent extends User{
 	
 	public static void main(String[] args) {
 		Agent a = new Agent(0, "asdf@gmail.com", "abc123", "Abe");
-		IOManager.getInstance().println(a.getClassName());
+//		IOManager.getInstance().println(a.getClassName());
 	}
 }
