@@ -1,18 +1,13 @@
 package app.model.dao.daoclasses;
-
-import app.model.dao.daointerfaces.IAccidentDAO;
+import app.model.dao.daointerfaces.Dao;
 import app.model.domains.Accident;
-
-
 import java.math.BigDecimal;
 import java.util.List;
 
-public class AccidentDAO implements IAccidentDAO {
-
+public class AccidentDAO extends InsuranceCalculatorDao<Accident> implements Dao<Accident> {
 
     @Override
     public void create(Accident type) {
-
     }
 
     @Override
@@ -35,7 +30,6 @@ public class AccidentDAO implements IAccidentDAO {
         return null;
     }
 
-    @Override
     public BigDecimal getDamage() {
         return null;
     }

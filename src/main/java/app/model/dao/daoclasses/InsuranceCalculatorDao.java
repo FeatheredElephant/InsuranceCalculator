@@ -1,4 +1,4 @@
-package app.model.dao;
+package app.model.dao.daoclasses;
 
 import java.io.InputStream;
 import java.util.Properties;

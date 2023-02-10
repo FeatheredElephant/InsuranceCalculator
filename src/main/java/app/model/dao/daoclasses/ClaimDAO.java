@@ -1,11 +1,11 @@
 package app.model.dao.daoclasses;
-
-import app.model.dao.daointerfaces.IClaimDAO;
+import app.model.dao.daointerfaces.Dao;
 import app.model.domains.Claim;
 
 import java.util.List;
 
-public class ClaimDAO implements IClaimDAO {
+public class ClaimDAO extends InsuranceCalculatorDao<Claim> implements Dao<Claim> {
+
     @Override
     public void create(Claim type) {
 

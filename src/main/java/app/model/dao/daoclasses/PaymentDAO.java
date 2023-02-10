@@ -1,11 +1,10 @@
 package app.model.dao.daoclasses;
-
-import app.model.dao.daointerfaces.IPaymentDAO;
+import app.model.dao.daointerfaces.Dao;
 import app.model.domains.Payment;
-
 import java.util.List;
 
-public class PaymentDAO implements IPaymentDAO {
+public class PaymentDAO extends InsuranceCalculatorDao<Payment> implements Dao<Payment> {
+
     @Override
     public void create(Payment type) {
 
