@@ -1,54 +1,69 @@
 package app.view;
+
 import app.IOManager;
 import app.exception.InvalidOptionSelectedException;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 public class AgentMenu implements IMenu {
 
-    IOManager io = IOManager.getInstance();
+    private static final IOManager IO = IOManager.getInstance();
+
+    private List<Option> options = Arrays.asList(
+            new Option("1", "View active customers", this::viewActiveCustomers),
+            new Option("2", "View sales history", this::viewSalesHistory),
+            new Option("3", "View policy options", this::viewPolicyOptions),
+            new Option("4", "Purchase a policy", this::purchasePolicy),
+            new Option("5", "Manage existing policy", this::manageExistingPolicy),
+            new Option("0", "Exit", () -> IO.println("Thanks for using our application"))
+    );
 
     @Override
     public void view() {
-        io.println("1 - View active customers");
-        io.println("2 - View sales history");
-        io.println("3 - View policy options");
-        io.println("4 - Purchase a policy");
-        io.println("5 - Manage existing policy");
-        io.println("0 - exit");
-    }
-
-    @Override
-    public void selectOption(String option) {
-        switch (option) {
-            case"0":
-                io.println("Thanks for using our application");
-                break;
-            case "1":
-                viewActiveCustomers();
-                break;
-            case "2":
-                viewSalesHistory();
-                break;
-            case "3":
-                viewPolicyOptions();
-                break;
-            case "4":
-                purchasePolicy();
-                break;
-            case "5":
-                manageExistingPolicy();
-            default:
-                try {
-                    throw new InvalidOptionSelectedException("\nInvalid option selected\n");
-                } catch (InvalidOptionSelectedException e) {
-                    io.reportError(e);
-                }
+        for (Option option : options) {
+            IO.println(option.getOption() + " - " + option.getDescription());
         }
     }
 
-    private void viewActiveCustomers(){}
-    private void viewSalesHistory(){}
-    private void viewPolicyOptions(){}
-    private void purchasePolicy(){}
-    private void manageExistingPolicy(){}
+    @Override
+    public boolean selectOption(String option) {
+        boolean optionSelected = false;
+        for (Option opt : options) {
+            if (opt.getOption().equals(option)) {
+                if (opt.getDescription().equals("Exit")) {
+                    return false;
+                }
+                opt.getMethod().run();
+                optionSelected = true;
+                break;
+            }
+        }
+        if (!optionSelected) {
+            try {
+                throw new InvalidOptionSelectedException("Invalid option selected\n");
+            } catch (InvalidOptionSelectedException e) {
+                IO.reportError(e);
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    private void viewActiveCustomers() {
+    }
+
+    private void viewSalesHistory() {
+    }
+
+    private void viewPolicyOptions() {
+    }
+
+    private void purchasePolicy() {
+    }
+
+    private void manageExistingPolicy() {
+    }
 }

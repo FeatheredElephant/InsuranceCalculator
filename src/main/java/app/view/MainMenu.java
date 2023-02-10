@@ -13,6 +13,7 @@ public class MainMenu {
         CustomerMenu customerMenu;
         AgentMenu agentMenu;
         String option;
+        boolean isExit;
         String user = "customer";
 
         switch (user) {
@@ -21,8 +22,8 @@ public class MainMenu {
                 do {
                     customerMenu.view();
                     option = scanner.next();
-                    customerMenu.selectOption(option);
-                } while (!option.equals("0"));
+                    isExit = customerMenu.selectOption(option);
+                } while (isExit);
                 io.println("User exits application.");
                 break;
             case "agent":
@@ -30,8 +31,8 @@ public class MainMenu {
                 do {
                     agentMenu.view();
                     option = scanner.next();
-                    agentMenu.selectOption(option);
-                } while (!option.equals("0"));
+                    isExit = agentMenu.selectOption(option);
+                } while (isExit);
                 io.println("User exits application.");
         }
 
