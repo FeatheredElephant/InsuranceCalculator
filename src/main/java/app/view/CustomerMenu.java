@@ -3,64 +3,74 @@ package app.view;
 import app.IOManager;
 import app.exception.InvalidOptionSelectedException;
 
-public class CustomerMenu implements IMenu{
+import java.util.Arrays;
+import java.util.List;
 
-    private static IOManager io = IOManager.getInstance();
-    
+public class CustomerMenu implements IMenu {
+
+    private static IOManager IO = IOManager.getInstance();
+
+    private List<Option> options = Arrays.asList(
+            new Option("1", "View policy details", this::viewPolicyDetails),
+            new Option("2", "View driver information", this::viewDriverInformation),
+            new Option("3", "Change driver information", this::changeDriverInformation),
+            new Option("4", "Report a claim", this::reportAClaim),
+            new Option("5", "Make payment", this::makeAPayment),
+            new Option("6", "View policy history", this::viewPolicyHistory),
+            new Option("7", "Contact customer support", this::contactCustomerSupport),
+            new Option("0", "Exit", () -> IO.println("Thanks for using our application"))
+    );
+
     @Override
     public void view() {
-        io.println("1 - View policy details");
-        io.println("2 - View driver information");
-        io.println("3 - Change driver information");
-        io.println("4 - Report a claim");
-        io.println("5 - Make payment");
-        io.println("6 - View policy history");
-        io.println("7 - Contact customer support");
-        io.println("0 - exit");
-    }
-
-    @Override
-    public void selectOption(String option) {
-        switch (option){
-            case"0":
-            io.println("Thanks for using our application!");
-            break;
-            case"1":
-            viewPolicyDetails();
-                break;
-            case"2":
-                viewDriverInformation();
-                break;
-            case"3":
-                changeDriverInformation();
-                break;
-            case"4":
-                reportAClaim();
-                break;
-            case"5":
-                makeAPayment();
-                break;
-            case"6":
-                viewPolicyHistory();
-                break;
-            case"7":
-                contactCustomerSupport();
-                break;
-            default:
-                try {
-                    throw new InvalidOptionSelectedException("\nInvalid option selected,please try again\n");
-                } catch (InvalidOptionSelectedException e) {
-                    io.reportError(e);
-                }
+        for (Option option : options) {
+            IO.println(option.getOption() + " - " + option.getDescription());
         }
     }
 
-    private void viewPolicyDetails(){}
-    private void viewDriverInformation(){}
-    private void changeDriverInformation(){}
-    private void reportAClaim(){}
-    private void makeAPayment(){}
-    private void viewPolicyHistory(){}
-    private void contactCustomerSupport(){}
+    @Override
+    public boolean selectOption(String option) {
+        boolean optionSelected = false;
+        for (Option opt : options) {
+            if (opt.getOption().equals(option)) {
+                if (opt.getDescription().equals("Exit")) {
+                    return false;
+                }
+                opt.getMethod().run();
+                optionSelected = true;
+                break;
+            }
+        }
+        if (!optionSelected) {
+            try {
+                throw new InvalidOptionSelectedException("Invalid option selected\n");
+            } catch (InvalidOptionSelectedException e) {
+                IO.reportError(e);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void viewPolicyDetails() {
+    }
+
+    private void viewDriverInformation() {
+    }
+
+    private void changeDriverInformation() {
+    }
+
+    private void reportAClaim() {
+    }
+
+    private void makeAPayment() {
+    }
+
+    private void viewPolicyHistory() {
+    }
+
+    private void contactCustomerSupport() {
+    }
 
 }
