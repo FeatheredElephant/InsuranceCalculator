@@ -1,11 +1,10 @@
 package app.model.dao.daoclasses;
-
-import app.model.dao.daointerfaces.IBrandDAO;
+import app.model.dao.daointerfaces.Dao;
 import app.model.domains.Brand;
-
 import java.util.List;
 
-public class BrandDAO implements IBrandDAO {
+public class BrandDAO extends InsuranceCalculatorDao<Brand> implements Dao<Brand> {
+
     @Override
     public void create(Brand type) {
 

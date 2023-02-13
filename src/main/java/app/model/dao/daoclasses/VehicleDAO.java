@@ -1,11 +1,10 @@
 package app.model.dao.daoclasses;
-
-import app.model.dao.daointerfaces.IVehicleDAO;
+import app.model.dao.daointerfaces.Dao;
 import app.model.domains.Vehicle;
-
 import java.util.List;
 
-public class VehicleDAO implements IVehicleDAO {
+public class VehicleDAO extends InsuranceCalculatorDao<Vehicle> implements Dao<Vehicle> {
+
     @Override
     public void create(Vehicle type) {
 

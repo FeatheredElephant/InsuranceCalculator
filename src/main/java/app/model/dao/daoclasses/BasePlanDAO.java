@@ -1,12 +1,11 @@
 package app.model.dao.daoclasses;
-
-import app.model.dao.daointerfaces.IBasePlanDAO;
+import app.model.dao.daointerfaces.Dao;
 import app.model.domains.BasePlan;
-
 import java.math.BigDecimal;
 import java.util.List;
 
-public class BasePlanDAO implements IBasePlanDAO {
+public class BasePlanDAO extends InsuranceCalculatorDao<BasePlan> implements Dao<BasePlan> {
+
     @Override
     public void create(BasePlan type) {
 
@@ -32,12 +31,10 @@ public class BasePlanDAO implements IBasePlanDAO {
         return null;
     }
 
-    @Override
     public BigDecimal getMonthlyCost(String planName) {
         return null;
     }
 
-    @Override
     public BigDecimal getCoverageAmount(String planName) {
         return null;
     }

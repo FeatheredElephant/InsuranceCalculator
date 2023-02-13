@@ -1,11 +1,10 @@
 package app.model.dao.daoclasses;
-
-import app.model.dao.daointerfaces.ITicketDAO;
+import app.model.dao.daointerfaces.Dao;
 import app.model.domains.Ticket;
-
 import java.util.List;
 
-public class TicketDAO implements ITicketDAO {
+public class TicketDAO extends InsuranceCalculatorDao<Ticket> implements Dao<Ticket> {
+
     @Override
     public void create(Ticket type) {
 

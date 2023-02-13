@@ -1,11 +1,10 @@
 package app.model.dao.daoclasses;
-
-import app.model.dao.daointerfaces.IAgentDAO;
+import app.model.dao.daointerfaces.Dao;
 import app.model.domains.Agent;
-
 import java.util.List;
 
-public class AgentDAO implements IAgentDAO {
+public class AgentDAO extends InsuranceCalculatorDao<Agent> implements Dao<Agent> {
+
     @Override
     public void create(Agent type) {
 

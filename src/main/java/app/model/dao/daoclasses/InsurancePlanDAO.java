@@ -1,11 +1,10 @@
 package app.model.dao.daoclasses;
-
-import app.model.dao.daointerfaces.IInsurancePlanDAO;
+import app.model.dao.daointerfaces.Dao;
 import app.model.domains.InsurancePlan;
-
 import java.util.List;
 
-public class InsurancePlanDAO implements IInsurancePlanDAO {
+public class InsurancePlanDAO extends InsuranceCalculatorDao<InsurancePlan> implements Dao<InsurancePlan> {
+
     @Override
     public void create(InsurancePlan type) {
 
