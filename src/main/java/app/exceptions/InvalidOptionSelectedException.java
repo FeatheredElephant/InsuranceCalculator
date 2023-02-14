@@ -1,4 +1,4 @@
-package app.exception;
+package app.exceptions;
 
 public class InvalidOptionSelectedException extends Exception{
 

@@ -1,32 +1,13 @@
 package app.model.dao.daoclasses;
-import app.model.dao.daointerfaces.Dao;
+import app.model.dao.daointerfaces.IDao;
 import app.model.domains.Brand;
-import java.util.List;
 
-public class BrandDAO extends InsuranceCalculatorDao<Brand> implements Dao<Brand> {
+public class BrandDAO extends InsuranceCalculatorDao<Brand> implements IDao<Brand> {
 
-    @Override
-    public void create(Brand type) {
-
-    }
-
-    @Override
-    public Brand read(int id) {
-        return null;
-    }
-
-    @Override
-    public void update(Brand type) {
-
-    }
-
-    @Override
-    public void delete(int id) {
-
-    }
-
-    @Override
-    public List<Brand> readAll() {
-        return null;
-    }
+	BrandDAO(Class<Brand> defaultClass){
+		super(defaultClass);
+	}
+	BrandDAO(){
+		super(Brand.class);
+	}
 }

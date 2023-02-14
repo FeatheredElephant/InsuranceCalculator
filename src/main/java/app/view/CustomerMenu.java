@@ -1,7 +1,7 @@
 package app.view;
 
 import app.IOManager;
-import app.exception.InvalidOptionSelectedException;
+import app.exceptions.InvalidOptionSelectedException;
 
 import java.util.Arrays;
 import java.util.List;
