@@ -1,38 +1,24 @@
 package app.controller;
 
 import app.model.domains.*;
+import app.view.Date;
+import app.view.InterestRate;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Calculate {
     public static BigDecimal calculate(Vehicle vehicle, List<Driver> drivers, List<Accident> accidents, List<Ticket> tickets) {
         BigDecimal monthlyCost = vehicle.getInsurancePlan().getTotalMonthlyCost();
         BigDecimal numDrivers = BigDecimal.valueOf(drivers.size());
 
-        List<String> startDates = new ArrayList<>();
-        for (Driver driver : drivers) {
-            startDates.add(driver.getStartDate());
-        }
+        List<String> startDates = drivers.stream().map(date -> date.getStartDate()).collect(Collectors.toList());
 
-        // cost after cut off date
-        String cutOffDate = "2015-01-01";
-        LocalDate costDate = LocalDate.parse(cutOffDate);
-        BigDecimal interestRate = BigDecimal.valueOf(0.20).divide(numDrivers,2,RoundingMode.HALF_UP);
-        System.out.println("interest rate is " + interestRate);
-        for (String date : startDates) {
-            LocalDate startDate = LocalDate.parse(date);
-            if (startDate.isAfter(costDate)) {
-                monthlyCost = monthlyCost.add(monthlyCost.multiply(interestRate));
-            } else {
-                interestRate = BigDecimal.valueOf(0.10).divide(numDrivers,2,RoundingMode.HALF_UP);
-                monthlyCost = monthlyCost.add(monthlyCost.multiply(interestRate));
-            }
-        }
+        // cost after date
+        monthlyCost = costAfterDate(startDates, numDrivers, monthlyCost);
 
         // cost after points
         BigDecimal premiumRate = costAfterPoints(tickets);
@@ -44,37 +30,50 @@ public class Calculate {
         System.out.println("accident rate is " + accidentRate);
         monthlyCost = monthlyCost.add(monthlyCost.multiply(accidentRate));
 
-        MathContext mc = new MathContext(6);
         BigDecimal totalCost = monthlyCost.multiply(BigDecimal.valueOf(12)).setScale(2, RoundingMode.CEILING);
 
         return totalCost;
     }
 
-    public static BigDecimal costAfterPoints(List<Ticket> tickets) {
-        int totalPoints = 0;
-        for (Ticket ticket : tickets) {
-            totalPoints += ticket.getPoints();
+    public static BigDecimal costAfterDate(List<String> startDates, BigDecimal numDrivers, BigDecimal monthlyCost) {
+        String cutOffDate = Date.CutOffDate.getDate();
+        LocalDate costDate = LocalDate.parse(cutOffDate);
+
+        BigDecimal interestRate = BigDecimal.valueOf(InterestRate.TWENTY.getRate()).divide(numDrivers,2,RoundingMode.HALF_UP);
+        System.out.println("interest rate is " + interestRate);
+        for (String date : startDates) {
+            LocalDate startDate = LocalDate.parse(date);
+            if (startDate.isAfter(costDate)) {
+                monthlyCost = monthlyCost.add(monthlyCost.multiply(interestRate));
+            } else {
+                interestRate = BigDecimal.valueOf(InterestRate.TEN.getRate()).divide(numDrivers,2,RoundingMode.HALF_UP);
+                monthlyCost = monthlyCost.add(monthlyCost.multiply(interestRate));
+            }
         }
+        return monthlyCost;
+    }
+
+    public static BigDecimal costAfterPoints(List<Ticket> tickets) {
+        List<Integer> points = tickets.stream().map(point -> point.getPoints()).collect(Collectors.toList());
+        Integer totalPoints = points.stream().collect(Collectors.summingInt(Integer::intValue));
 
         if (totalPoints > 10) {
-            return BigDecimal.valueOf(0.25);
+            return BigDecimal.valueOf(InterestRate.TWENTY_FIVE.getRate());
         } else if (totalPoints <= 10 && totalPoints > 5) {
-            return BigDecimal.valueOf(0.20);
+            return BigDecimal.valueOf(InterestRate.TWENTY.getRate());
         }
 
-        return BigDecimal.valueOf(0.10);
+        return BigDecimal.valueOf(InterestRate.TEN.getRate());
     }
 
     public static BigDecimal costAfterDamages(List<Accident> accidents) {
-        BigDecimal totalDamage = BigDecimal.valueOf(0.00);
-        for (Accident accident : accidents) {
-            totalDamage = totalDamage.add(accident.getDamages());
-        }
+        List<BigDecimal> damages = accidents.stream().map(accident -> accident.getDamages()).collect(Collectors.toList());
+        BigDecimal totalDamage = damages.stream().reduce(BigDecimal.ZERO, (p,q) -> p.add(q));
 
         if(totalDamage.compareTo(BigDecimal.valueOf(5000)) > 0) {
-            return BigDecimal.valueOf(0.40);
+            return BigDecimal.valueOf(InterestRate.FOURTY.getRate());
         }
 
-        return BigDecimal.valueOf(0.20);
+        return BigDecimal.valueOf(InterestRate.TWENTY.getRate());
     }
 }

@@ -3,10 +3,10 @@ import app.model.dao.daointerfaces.IDao;
 import app.model.domains.Driver;
 
 public class DriverDAO extends InsuranceCalculatorDao<Driver> implements IDao<Driver> {
-	DriverDAO(Class<Driver> defaultClass){
+	public DriverDAO(Class<Driver> defaultClass){
 		super(defaultClass);
 	}
-	DriverDAO(){
+	public DriverDAO(){
 		super(Driver.class);
 	}
 }

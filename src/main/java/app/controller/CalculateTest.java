@@ -13,10 +13,6 @@ public class CalculateTest {
         List<Accident> accidents = new ArrayList<>();
 
         // creating objects to create vehicle
-        Brand brand1 = new Brand(1, "SUV");
-        BasePlan basePlan1 = new BasePlan("Insurance Coverage", BigDecimal.valueOf(168.0),
-                BigDecimal.valueOf(52.0));
-        Model model1 = new Model(1, 1, 1);
         Agent agent = new Agent(1, "smith@gmail.com", "12345", "Smith", 1);
         InsurancePlan insurancePlan = new InsurancePlan(1, agent, "2/8/2020", "5/10/2030",
                             BigDecimal.valueOf(50.0));

@@ -3,10 +3,10 @@ import app.model.dao.daointerfaces.IDao;
 import app.model.domains.Customer;
 
 public class CustomerDAO extends InsuranceCalculatorDao<Customer> implements IDao<Customer> {
-	CustomerDAO(Class<Customer> defaultClass){
+	public CustomerDAO(Class<Customer> defaultClass){
 		super(defaultClass);
 	}
-	CustomerDAO(){
+	public CustomerDAO(){
 		super(Customer.class);
 	}
 }

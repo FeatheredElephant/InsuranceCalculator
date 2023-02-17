@@ -6,7 +6,7 @@ public class InsurancePlanDAO extends InsuranceCalculatorDao<InsurancePlan> impl
 	InsurancePlanDAO(Class<InsurancePlan> defaultClass){
 		super(defaultClass);
 	}
-	InsurancePlanDAO(){
+	public InsurancePlanDAO(){
 		super(InsurancePlan.class);
 	}
 }

@@ -2,6 +2,8 @@ package app.view;
 
 import app.IOManager;
 import app.exceptions.InvalidOptionSelectedException;
+import app.model.dao.daoclasses.InsuranceCalculatorDao;
+import app.model.dao.daoclasses.InsurancePlanDAO;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,6 +20,7 @@ public class CustomerMenu implements IMenu {
             new Option("5", "Make payment", this::makeAPayment),
             new Option("6", "View policy history", this::viewPolicyHistory),
             new Option("7", "Contact customer support", this::contactCustomerSupport),
+            new Option("8", "Calculate monthly insurance", this::calculateInsurance),
             new Option("0", "Exit", () -> IO.println("Thanks for using our application"))
     );
 
@@ -73,4 +76,7 @@ public class CustomerMenu implements IMenu {
     private void contactCustomerSupport() {
     }
 
+    public void calculateInsurance() {
+        InsurancePlanDAO ipDAO = new InsurancePlanDAO();
+    }
 }

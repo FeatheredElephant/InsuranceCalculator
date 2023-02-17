@@ -17,5 +17,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="mappers/userMapper.xml"/>
+		<mapper resource="mappers/accidentMapper.xml"/>
+		<mapper resource="mappers/ticketMapper.xml"/>
 	</mappers>
 </configuration>
