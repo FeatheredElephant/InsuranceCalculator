@@ -5,28 +5,35 @@ import java.util.Scanner;
 public class MainMenu {
 
     private static final IOManager io = IOManager.getInstance();
-    private static final Scanner scanner = new Scanner(System.in);
 
-    public static void displayMenu(String userType) {
-        IMenu menu;
+    public static void displayMenu(UserType userType) {
+        Scanner scanner;
+        IMenu menu = null;
         String option;
         boolean isExit;
 
-        if (userType.equals("customer")) {
-            menu = new CustomerMenu();
-        } else if (userType.equals("agent")) {
-            menu = new AgentMenu();
-        } else {
-            io.println("Invalid user type.");
-            return;
+        switch (userType){
+            case CUSTOMER:
+                menu = new CustomerMenu();
+                break;
+            case AGENT:
+                menu = new AgentMenu();
+                break;
+            default:
+                io.println("Invalid user type");
+                break;
         }
 
         do {
             menu.view();
-            option = scanner.next();
+            scanner = new Scanner(System.in);
+            option = scanner.nextLine();
             isExit = menu.selectOption(option);
+//            scanner.close();
         } while (isExit);
+
         io.println("User exits application.");
     }
+
 
 }

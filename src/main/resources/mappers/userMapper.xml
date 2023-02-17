@@ -8,8 +8,8 @@
 		<result property="password" column="password"/>
 		<result property="name" column="name"/>
 	</resultMap>
-	
 	<!-- ReadAll, Create, Read, Update, Delete -->
+
 	<select id="readAll" resultMap="result">
 		SELECT * FROM user;
 	</select>

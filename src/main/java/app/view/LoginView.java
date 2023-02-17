@@ -1,11 +1,12 @@
 package app.view;
+import app.exceptions.InvalidOptionSelectedException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import app.controller.Login.LoginHandler;
 import app.model.domains.User;
 import java.util.Scanner;
 
-public class LoginView implements IView {
+public class LoginView{
 
     private static Logger LOGGER = LogManager.getLogger(LoginView.class.getName());
 
@@ -25,32 +26,23 @@ public class LoginView implements IView {
         LOGGER.info("Enter password:");
         String password = input.nextLine();
 
-        input.close();
-
         User user = LoginHandler.login(email, password);
         if (user == null) {
             login();
             return;
         }
 
-        IMenu menu = null;
         switch (user.getClass().getSimpleName().toLowerCase()) {
-            case "customer":
-                menu = new CustomerMenu();
-                break;
-            case "agent":
-                menu = new AgentMenu();
-                break;
-            default:
-                break;
+            case "customer" -> MainMenu.displayMenu(UserType.CUSTOMER);
+            case "agent" -> MainMenu.displayMenu(UserType.AGENT);
+            default -> {
+                try {
+                    throw new InvalidOptionSelectedException("invalid user type");
+                } catch (InvalidOptionSelectedException e) {
+                    LOGGER.error(e);
+                }
+            }
         }
-
-        menu.view();
     }
 
-    @Override
-    public void view() {
-        // TODO Auto-generated method stub
-
-    }
 }
