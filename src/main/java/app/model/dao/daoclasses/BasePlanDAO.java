@@ -5,10 +5,10 @@ import java.math.BigDecimal;
 
 public class BasePlanDAO extends InsuranceCalculatorDao<BasePlan> implements IDao<BasePlan> {
 	
-	BasePlanDAO(Class<BasePlan> defaultClass){
+	public BasePlanDAO(Class<BasePlan> defaultClass){
 		super(defaultClass);
 	}
-	BasePlanDAO(){
+	public BasePlanDAO(){
 		super(BasePlan.class);
 	}
 

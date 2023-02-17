@@ -3,10 +3,10 @@ import app.model.dao.daointerfaces.IDao;
 import app.model.domains.Vehicle;
 
 public class VehicleDAO extends InsuranceCalculatorDao<Vehicle> implements IDao<Vehicle> {
-	VehicleDAO(Class<Vehicle> defaultClass){
+	public VehicleDAO(Class<Vehicle> defaultClass){
 		super(defaultClass);
 	}
-	VehicleDAO(){
+	public VehicleDAO(){
 		super(Vehicle.class);
 	}
 }

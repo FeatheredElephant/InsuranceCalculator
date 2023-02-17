@@ -3,10 +3,10 @@ import app.model.dao.daointerfaces.IDao;
 import app.model.domains.Payment;
 
 public class PaymentDAO extends InsuranceCalculatorDao<Payment> implements IDao<Payment> {
-	PaymentDAO(Class<Payment> defaultClass){
+	public PaymentDAO(Class<Payment> defaultClass){
 		super(defaultClass);
 	}
-	PaymentDAO(){
+	public PaymentDAO(){
 		super(Payment.class);
 	}
 }
