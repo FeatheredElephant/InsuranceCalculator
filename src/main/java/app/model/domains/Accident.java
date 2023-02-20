@@ -1,65 +1,71 @@
 package app.model.domains;
 
-import java.math.BigDecimal;
-import java.util.Objects;
+import java.sql.Date;
 
 public class Accident extends Domain{
-	int accidentId;
-	BigDecimal damages;
-	int vehicleId;
+
+	int id;
+	Date date;
 	int driverId;
+	int vehicleId;
+	String description;
 
-	public Accident(){}
-
-	public Accident(int accidentId, BigDecimal damages, int vehicleId, int driverId) {
-		super();
-		this.accidentId = accidentId;
-		this.damages = damages;
-		this.vehicleId = vehicleId;
+	public Accident(int id, Date date, int driverId, int vehicleId, String description) {
+		this.id = id;
+		this.date = date;
 		this.driverId = driverId;
-	}
-	public int getAccidentId() {
-		return accidentId;
-	}
-	public void setAccidentId(int accidentId) {
-		this.accidentId = accidentId;
-	}
-	public BigDecimal getDamages() {
-		return damages;
-	}
-	public void setDamages(BigDecimal damages) {
-		this.damages = damages;
-	}
-	public int getVehicleId() {
-		return vehicleId;
-	}
-	public void setVehicleId(int vehicleId) {
 		this.vehicleId = vehicleId;
+		this.description = description;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	public int getDriverId() {
 		return driverId;
 	}
+
 	public void setDriverId(int driverId) {
 		this.driverId = driverId;
 	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(accidentId);
+
+	public int getVehicleId() {
+		return vehicleId;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Accident other = (Accident) obj;
-		return accidentId == other.accidentId;
+
+	public void setVehicleId(int vehicleId) {
+		this.vehicleId = vehicleId;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public String toString() {
-		return "Accident [accidentId=" + accidentId + ", damages=" + damages + ", vehicleId=" + vehicleId + ", driverId="
-				+ driverId + "]";
+		return "Accidents{" +
+				"id=" + id +
+				", date=" + date +
+				", driverId=" + driverId +
+				", vehicleId=" + vehicleId +
+				", description='" + description + '\'' +
+				'}';
 	}
 }

@@ -1,30 +1,43 @@
 package app.model.domains;
 
-import java.math.BigDecimal;
-import java.util.Objects;
+import java.sql.Date;
 
 public class Payment extends Domain{
-	private int paymentId;
-	private int customerId;
-	private String paymentDate;
-	private BigDecimal amount;
 
-	public Payment(){}
-	
-	public Payment(int paymentId, int customerId, String paymentDate, BigDecimal amount) {
-		super();
-		this.paymentId = paymentId;
+	int id;
+	double amount;
+	Date date;
+	int customerId;
+
+	public Payment(int id, double amount, Date date, int customerId) {
+		this.id = id;
+		this.amount = amount;
+		this.date = date;
 		this.customerId = customerId;
-		this.paymentDate = paymentDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
-	public int getPaymentId() {
-		return paymentId;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setPaymentId(int paymentId) {
-		this.paymentId = paymentId;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public int getCustomerId() {
@@ -35,42 +48,13 @@ public class Payment extends Domain{
 		this.customerId = customerId;
 	}
 
-	public String getPaymentDate() {
-		return paymentDate;
-	}
-
-	public void setPaymentDate(String paymentDate) {
-		this.paymentDate = paymentDate;
-	}
-
-	public BigDecimal getAmount() {
-		return amount;
-	}
-
-	public void setAmount(BigDecimal amount) {
-		this.amount = amount;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(paymentId);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Payment other = (Payment) obj;
-		return paymentId == other.paymentId;
-	}
-
 	@Override
 	public String toString() {
-		return "Payment [paymentId=" + paymentId + ", customer=" + customerId + ", paymentDate=" + paymentDate
-				+ ", amount=" + amount + "]";
+		return "Payment{" +
+				"id=" + id +
+				", amount=" + amount +
+				", date=" + date +
+				", customerId=" + customerId +
+				'}';
 	}
 }

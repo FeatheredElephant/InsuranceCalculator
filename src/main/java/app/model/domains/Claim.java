@@ -1,65 +1,84 @@
 package app.model.domains;
 
-import java.util.Objects;
+
+import java.sql.Date;
 
 public class Claim extends Domain{
-	int claimId;
-	Customer customer;
-	Accident accident;
 
-	public Claim(){}
+	int id;
+	Date date;
+	int customerId;
+	int vehicleId;
+	double amount;
+	String description;
 
-	public Claim(int claimId, Customer customer, Accident accident) {
-		super();
-		this.claimId = claimId;
-		this.customer = customer;
-		this.accident = accident;
+	public Claim(int id, Date date, int customerId, int vehicleId, double amount, String description) {
+		this.id = id;
+		this.date = date;
+		this.customerId = customerId;
+		this.vehicleId = vehicleId;
+		this.amount = amount;
+		this.description = description;
 	}
 
-	public int getClaimId() {
-		return claimId;
+	public int getId() {
+		return id;
 	}
 
-	public void setClaimId(int claimId) {
-		this.claimId = claimId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public Accident getAccident() {
-		return accident;
+	public int getCustomerId() {
+		return customerId;
 	}
 
-	public void setAccident(Accident accident) {
-		this.accident = accident;
-	}
-	
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(claimId);
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Claim other = (Claim) obj;
-		return claimId == other.claimId;
+	public int getVehicleId() {
+		return vehicleId;
 	}
+
+	public void setVehicleId(int vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Claim [claimId=" + claimId + ", customer=" + customer + ", accident=" + accident + "]";
+		return "Claim{" +
+				"id=" + id +
+				", date=" + date +
+				", customerId=" + customerId +
+				", vehicleId=" + vehicleId +
+				", amount=" + amount +
+				", description='" + description + '\'' +
+				'}';
 	}
 }

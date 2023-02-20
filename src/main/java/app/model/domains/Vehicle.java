@@ -1,77 +1,105 @@
 package app.model.domains;
 
-import java.util.Objects;
+public class Vehicle extends Domain {
 
-public class Vehicle extends Domain{
-	int vin;
-	int year;
-	float mileage;
-	int modelId;
-	InsurancePlan insurancePlan;
+    int id;
+    String make;
+    String model;
+    int year;
+    String vin;
+    int customerId;
+    int driverId;
+    int insurancePlanId;
 
-	public Vehicle(){}
-	
-	public Vehicle(int vin, int year, float mileage, int modelId, InsurancePlan insurancePlan) {
-		super();
-		this.vin = vin;
-		this.year = year;
-		this.mileage = mileage;
-		this.modelId = modelId;
-		this.insurancePlan = insurancePlan;
-	}
-	
-	public int getVin() {
-		return vin;
-	}
-	public void setVin(int vin) {
-		this.vin = vin;
-	}
-	public int getYear() {
-		return year;
-	}
-	public void setYear(int year) {
-		this.year = year;
-	}
-	public float getMileage() {
-		return mileage;
-	}
-	public void setMileage(float mileage) {
-		this.mileage = mileage;
-	}
-	public int getModelId() {
-		return modelId;
-	}
-	public void setModelId(int modelId) {
-		this.modelId = modelId;
-	}
-	public InsurancePlan getInsurancePlan() {
-		return insurancePlan;
-	}
-	public void setInsurancePlan(InsurancePlan insurancePlan) {
-		this.insurancePlan = insurancePlan;
-	}
+    public Vehicle() {
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(vin);
-	}
+    public Vehicle(int id, String make, String model, int year, String vin, int customerId, int driverId, int insurancePlanId) {
+        this.id = id;
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.vin = vin;
+        this.customerId = customerId;
+        this.driverId = driverId;
+        this.insurancePlanId = insurancePlanId;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Vehicle other = (Vehicle) obj;
-		return vin == other.vin;
-	}
+    public int getId() {
+        return id;
+    }
 
-	@Override
-	public String toString() {
-		return "Vehicle [vin=" + vin + ", year=" + year + ", mileage=" + mileage + ", model=" + modelId
-				+ ", insurancePlan=" + insurancePlan + "]";
-	}
-	
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public int getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
+    }
+
+    public int getInsurancePlanId() {
+        return insurancePlanId;
+    }
+
+    public void setInsurancePlanId(int insurancePlanId) {
+        this.insurancePlanId = insurancePlanId;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", vin='" + vin + '\'' +
+                ", customerId=" + customerId +
+                ", driverId=" + driverId +
+                ", insurancePlanId=" + insurancePlanId +
+                '}';
+    }
 }
