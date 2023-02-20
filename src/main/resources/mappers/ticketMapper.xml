@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "public-id" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ticket">
-
     <resultMap id="result" type="ticket">
-        <result property="id" column="ticket_id"/>
-        <result property="points" column="points"/>
-        <result property="drivingId" column="driving_id"/>
+        <result property="id" column="id"/>
+        <result property="date" column="date"/>
+        <result property="driverId" column="driver_id"/>
+        <result property="description" column="description"/>
     </resultMap>
-
     <!-- ReadAll, Create, Read, Update, Delete -->
     <select id="readAll" resultMap="result">
         SELECT * FROM ticket;
     </select>
     <select id="read" parameterType="int" resultMap="result">
-        SELECT * FROM ticket WHERE ticket_id = #{id};
+        SELECT * FROM ticket WHERE id = #{id};
     </select>
     <insert id="create" parameterType="Ticket">
-        INSERT INTO ticket (ticket_id, points, driving_id) VALUES (#{id}, #{points}, #{drivingId});
+        INSERT INTO ticket (id, date, driver_id, description)
+        VALUES (#{id}, #{date}, #{driverId}, #{description});
     </insert>
     <update id = "update" parameterType="Ticket">
-        UPDATE ticket SET points=#{points}, driving_id=#{driving_id} WHERE ticket_id=#{id};
+        UPDATE ticket SET date=#{date}, driver_id=#{driverId}, description=#{description}
+        WHERE id=#{id};
     </update>
     <delete id="delete" parameterType="int">
-        DELETE FROM ticket WHERE ticket_id=#{id};
+        DELETE FROM ticket WHERE id=#{id};
     </delete>
 </mapper>

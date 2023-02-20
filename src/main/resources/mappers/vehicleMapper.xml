@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "public-id" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vehicle">
+	<resultMap id="result" type="vehicle">
+		<result property="id" column="id"/>
+		<result property="make" column="make"/>
+		<result property="model" column="model"/>
+		<result property="year" column="year"/>
+		<result property="vin" column="vin"/>
+		<result property="customerId" column="customer_id"/>
+		<result property="driverId" column="driver_id"/>
+		<result property="insurancePlanId" column="insurance_plan_id"/>
+	</resultMap>
+	<!-- ReadAll, Create, Read, Update, Delete -->
+	<select id="readAll" resultMap="result">
+		SELECT * FROM vehicle;
+	</select>
+	<select id="read" parameterType="int" resultMap="result">
+		SELECT * FROM vehicle WHERE id = #{id};
+	</select>
+	<insert id="create" parameterType="Vehicle">
+		INSERT INTO vehicle (id,make,model,year,vin,customer_id,driver_id,insurance_plan_id)
+		VALUES (#{id},#{make},#{model},#{year},#{vin},#{customerId},#{driverId},#{insurancePlanId});
+	</insert>
+	<update id = "update" parameterType="Vehicle">
+		UPDATE vehicle SET make=#{make}, model=#{model},year=#{year},vin=#{vin},customer_id=#{customerId},
+		driver_id=#{driverId},insurance_plan_id=#{insurancePlanId}
+		WHERE id = #{id};
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM vehicle WHERE id=#{id};
+	</delete>
+</mapper>
