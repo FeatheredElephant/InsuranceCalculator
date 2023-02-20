@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "public-id" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="insurancePlan">
+    <resultMap id="result" type="insurancePlan">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="deductible" column="deductible"/>
+        <result property="coverageAmount" column="coverage_amount"/>
+    </resultMap>
+    <!-- ReadAll, Create, Read, Update, Delete -->
+    <select id="readAll" resultMap="result">
+        SELECT * FROM insurance_plan;
+    </select>
+    <select id="read" parameterType="int" resultMap="result">
+        SELECT * FROM insurance_plan WHERE id = #{id};
+    </select>
+    <insert id="create" parameterType="InsurancePlan">
+        INSERT INTO insurance_plan (id, name, description, deductible, coverage_amount)
+        VALUES (#{id}, #{name}, #{description}, #{deductible}, #{coverageAmount});
+    </insert>
+    <update id = "update" parameterType="InsurancePlan">
+        UPDATE insurance_plan SET name=#{name}, description=#{description},
+        deductible = #{deductible}, coverage_amount = #{coverageAmount}
+        WHERE id=#{id};
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM insurance_plan WHERE id=#{id};
+    </delete>
+</mapper>
