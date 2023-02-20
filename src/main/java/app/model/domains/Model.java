@@ -1,6 +1,6 @@
 package app.model.domains;
 
-public class Model extends Domain{
+public class Model {
 
 	int id;
 	String name;

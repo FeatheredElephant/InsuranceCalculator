@@ -22,7 +22,7 @@ public abstract class InsuranceCalculatorDao<T> implements IDao<T> {
 		try {
 			InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
 			Properties props = new Properties();
-			props.load(Resources.getResourceAsStream("db.properties"));
+			props.load(Resources.getResourceAsStream("dbProps/localDB.properties"));
 			factory = new SqlSessionFactoryBuilder().build(is, props);
 		}
 		catch (Exception e) {

@@ -3,7 +3,7 @@ package app.model.domains;
 
 import java.sql.Date;
 
-public class Claim extends Domain{
+public class Claim {
 
 	int id;
 	Date date;

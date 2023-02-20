@@ -1,6 +1,6 @@
 package app.model.domains;
 
-public class Agent {
+public class Agent{
 
 	int id;
 	int userId;
