@@ -1,48 +1,47 @@
 package app.model.domains;
 
-import java.util.Objects;
-
 public class Brand extends Domain{
-	int brandId;
-	String brandName;
 
-	public Brand(){}
-	
-	public Brand(int brandId, String brandName) {
-		super();
-		this.brandId = brandId;
-		this.brandName = brandName;
+	int id;
+	String name;
+	int vehicleId;
+
+	public Brand(int id, String name, int vehicleId) {
+		this.id = id;
+		this.name = name;
+		this.vehicleId = vehicleId;
 	}
-	
-	public int getBrandId() {
-		return brandId;
+
+	public int getId() {
+		return id;
 	}
-	public void setBrandId(int brandId) {
-		this.brandId = brandId;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getBrandName() {
-		return brandName;
+
+	public String getName() {
+		return name;
 	}
-	public void setBrandName(String brandName) {
-		this.brandName = brandName;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(brandId);
+
+	public int getVehicleId() {
+		return vehicleId;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Brand other = (Brand) obj;
-		return brandId == other.brandId;
+
+	public void setVehicleId(int vehicleId) {
+		this.vehicleId = vehicleId;
 	}
+
 	@Override
 	public String toString() {
-		return "Brand [brandId=" + brandId + ", brandName=" + brandName + "]";
+		return "Brand{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", vehicleId=" + vehicleId +
+				'}';
 	}
 }

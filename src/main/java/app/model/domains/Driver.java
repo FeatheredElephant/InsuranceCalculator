@@ -1,57 +1,72 @@
 package app.model.domains;
 
-import java.util.Objects;
+
+import java.sql.Date;
 
 public class Driver extends Domain{
-	private int driverId;
-	private String startDate;
-	private int customerId;
 
-	public Driver(){}
-	
-	public Driver(int driverId, String startDate, int customerId) {
-		super();
-		this.driverId = driverId;
-		this.startDate = startDate;
-		this.customerId = customerId;
-	}
-	
-	public int getDriverId() {
-		return driverId;
-	}
-	public void setDriverId(int driverId) {
-		this.driverId = driverId;
-	}
-	public String getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-	public int getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	int id;
+	String firstname;
+	String lastname;
+	Date dateOfBirth;
+	int agentId;
+
+	public Driver(int id, String firstname, String lastname, Date dateOfBirth, int agentId) {
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.dateOfBirth = dateOfBirth;
+		this.agentId = agentId;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(driverId);
+	public int getId() {
+		return id;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Driver other = (Driver) obj;
-		return driverId == other.driverId;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public int getAgentId() {
+		return agentId;
+	}
+
+	public void setAgentId(int agentId) {
+		this.agentId = agentId;
+	}
+
 	@Override
 	public String toString() {
-		return "Driver [driverId=" + driverId + ", startDate=" + startDate + ", customer=" + customerId + "]";
-	}	
+		return "Driver{" +
+				"id=" + id +
+				", firstname='" + firstname + '\'' +
+				", lastname='" + lastname + '\'' +
+				", dateOfBirth=" + dateOfBirth +
+				", agentId=" + agentId +
+				'}';
+	}
 }

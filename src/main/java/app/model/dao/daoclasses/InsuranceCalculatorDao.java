@@ -1,18 +1,16 @@
 package app.model.dao.daoclasses;
 
-import java.io.InputStream;
-import java.util.List;
-import java.util.Properties;
-import java.util.stream.Collectors;
-
+import app.IOManager;
 import app.model.dao.daointerfaces.IDao;
-
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import app.IOManager;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Properties;
+import java.util.stream.Collectors;
 
 public abstract class InsuranceCalculatorDao<T> implements IDao<T> {
 	private SqlSessionFactory factory;
@@ -24,7 +22,7 @@ public abstract class InsuranceCalculatorDao<T> implements IDao<T> {
 		try {
 			InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
 			Properties props = new Properties();
-			props.load(Resources.getResourceAsStream("icDatabase.properties"));
+			props.load(Resources.getResourceAsStream("db.properties"));
 			factory = new SqlSessionFactoryBuilder().build(is, props);
 		}
 		catch (Exception e) {

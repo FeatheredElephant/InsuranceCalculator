@@ -1,24 +1,66 @@
 package app.model.domains;
 
-public class Customer extends User{
-	
-	int customerId;
-	
-	public Customer(int userId, String email, String password, String name, int customerId){
-		super(userId, email, password, name);
-	}
-	
-	public int getCustomerId() {
-		return customerId;
+public class Customer {
+
+	int id;
+	String firstname;
+	String lastname;
+	String email;
+	String phone;
+	int userId;
+
+	public Customer(int id, String firstname, String lastname, String email, String phone, int userId) {
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.phone = phone;
+		this.userId = userId;
 	}
 
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [getId()=" + getId() + ", getEmail()=" + getEmail() + ", getPassword()=" + getPassword()
-				+ ", getName()=" + getName() + ", hashCode()=" + "]";
+		return "Customer{" +
+				"id=" + id +
+				", firstname='" + firstname + '\'' +
+				", lastname='" + lastname + '\'' +
+				", email='" + email + '\'' +
+				", phone='" + phone + '\'' +
+				", userId=" + userId +
+				'}';
 	}
 }
