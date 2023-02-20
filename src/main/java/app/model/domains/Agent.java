@@ -3,45 +3,19 @@ package app.model.domains;
 public class Agent {
 
 	int id;
-	String firstname;
-	String lastname;
-	String email;
-	String phone;
 	int userId;
 
-	public Agent(int id, String firstname, String lastname, String email, String phone, int userId) {
+	public Agent(int id, int userId) {
 		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.email = email;
-		this.phone = phone;
 		this.userId = userId;
 	}
 
-
-
-	public String getFirstname() {
-		return firstname;
+	public int getId() {
+		return id;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getUserId() {
@@ -56,10 +30,6 @@ public class Agent {
 	public String toString() {
 		return "Agent{" +
 				"id=" + id +
-				", firstname='" + firstname + '\'' +
-				", lastname='" + lastname + '\'' +
-				", email='" + email + '\'' +
-				", phone='" + phone + '\'' +
 				", userId=" + userId +
 				'}';
 	}
