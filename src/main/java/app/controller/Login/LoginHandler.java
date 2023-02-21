@@ -1,38 +1,49 @@
 package app.controller.Login;
 
-//import app.IOManager;
-//import app.model.domains.Agent;
-//import app.model.domains.Customer;
-//import app.model.domains.User;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.NoSuchElementException;
-//import java.util.Optional;
+import app.IOManager;
+import app.model.dao.daoclasses.AgentDAO;
+import app.model.dao.daoclasses.CustomerDAO;
+import app.model.dao.daoclasses.UserDAO;
+import app.model.domains.Agent;
+import app.model.domains.Customer;
+import app.model.domains.User;
+
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 public class LoginHandler {
-//    private static List<User> loginSystem = new ArrayList<>();
-//
-//    public static User login(String email, String password) {
-//    	Optional<User> u = loginSystem.parallelStream()
-//    		.filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password))
-//    		.findAny();
-//    	try {
-//    		return u.get();
-//    	}
-//    	catch (NoSuchElementException e) {
-//    		IOManager.getInstance().println("Incorrect username or password.");
-//    		return null;
-//    	}
-//    }
-//
-//    public static void addCustomer(int userId, String email, String password, String name, int customerId) {
-//    	Customer user = new Customer(userId, email, password, name, customerId);
-//    	loginSystem.add(user);
-//    }
-//
-//    public static void addAgent(int userId, String email, String password, String name, int agentId) {
-//    	Agent user = new Agent(userId, email, password, name, agentId);
-//    	loginSystem.add(user);
-//    }
+    public static User login(String username, String password) {
+        try {
+            UserDAO uDao = new UserDAO();
+            Optional<User> u = uDao.readAll().parallelStream()
+                    .filter(user -> user.getUsername().equals(username) && user.getPassword().equals(password))
+                    .findAny();
+            return u.get();
+        } catch (NoSuchElementException e) {
+            IOManager.getInstance().println("Incorrect username or password.");
+        }
+        return null;
+    }
+
+    public static void addCustomer(int userId, String username, String password, String firstName, String lastName, String phone, int customerId) {
+        User user = new User(userId, username, password, firstName, lastName, phone);
+        Customer customer = new Customer(customerId, userId);
+
+        UserDAO uDAO = new UserDAO();
+        CustomerDAO cDAO = new CustomerDAO();
+
+        uDAO.create(user);
+        cDAO.create(customer);
+    }
+
+    public static void addAgent(int userId, String username, String password, String firstName, String lastName, String phone, int agentId) {
+		User user = new User(userId, username, password, firstName, lastName, phone);
+		Agent agent = new Agent(agentId, userId);
+
+		UserDAO uDAO = new UserDAO();
+		AgentDAO aDAO = new AgentDAO();
+
+		uDAO.create(user);
+		aDAO.create(agent);
+    }
 }

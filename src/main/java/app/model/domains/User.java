@@ -1,6 +1,6 @@
 package app.model.domains;
 
-public class User extends Domain {
+public class User{
 
     int id;
     String username;

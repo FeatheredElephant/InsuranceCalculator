@@ -2,7 +2,7 @@ package app.model.domains;
 
 import java.sql.Date;
 
-public class Accident extends Domain{
+public class Accident {
 
 	int id;
 	Date date;

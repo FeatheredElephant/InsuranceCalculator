@@ -3,7 +3,7 @@ package app.model.domains;
 
 import java.sql.Date;
 
-public class Ticket extends Domain{
+public class Ticket {
 
 		int id;
 		Date date;

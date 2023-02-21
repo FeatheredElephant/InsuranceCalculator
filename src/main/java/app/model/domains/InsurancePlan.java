@@ -1,6 +1,6 @@
 package app.model.domains;
 
-public class InsurancePlan extends Domain{
+public class InsurancePlan {
 
 	int id;
 	String name;

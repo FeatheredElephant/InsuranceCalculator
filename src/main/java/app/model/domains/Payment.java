@@ -2,7 +2,7 @@ package app.model.domains;
 
 import java.sql.Date;
 
-public class Payment extends Domain{
+public class Payment {
 
 	int id;
 	double amount;

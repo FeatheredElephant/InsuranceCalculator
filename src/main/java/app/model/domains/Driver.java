@@ -3,7 +3,7 @@ package app.model.domains;
 
 import java.sql.Date;
 
-public class Driver extends Domain{
+public class Driver {
 
 	int id;
 	String firstname;

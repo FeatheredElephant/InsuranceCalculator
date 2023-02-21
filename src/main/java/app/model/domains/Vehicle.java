@@ -1,6 +1,6 @@
 package app.model.domains;
 
-public class Vehicle extends Domain {
+public class Vehicle {
 
     int id;
     String make;
