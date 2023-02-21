@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "public-id" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="claim">
+    <resultMap id="result" type="claim">
+        <result property="id" column="id"/>
+        <result property="date" column="date"/>
+        <result property="customerId" column="customer_id"/>
+        <result property="vehicleId" column="vehicle_id"/>
+        <result property="amount" column="amount"/>
+        <result property="description" column="description"/>
+    </resultMap>
+    <!-- ReadAll, Create, Read, Update, Delete -->
+    <select id="readAll" resultMap="result">
+        SELECT * FROM claim;
+    </select>
+    <select id="read" parameterType="int" resultMap="result">
+        SELECT * FROM claim WHERE id = #{id};
+    </select>
+    <insert id="create" parameterType="Claim">
+        INSERT INTO claim (id, date, customer_id, vehicle_id, amount, description)
+        VALUES (#{id}, #{date}, #{customerId}, #{vehicleId}, #{amount}, #{description});
+    </insert>
+    <update id = "update" parameterType="Claim">
+        UPDATE claim SET date=#{date}, customer_id=#{customerId},
+        vehicle_id = #{vehicleId}, amount = #{amount}, description = #{description}
+        WHERE id=#{id};
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM claim WHERE id=#{id};
+    </delete>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "public-id" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="payment">
+	<resultMap id="result" type="payment">
+		<result property="id" column="id"/>
+		<result property="amount" column="amount"/>
+		<result property="date" column="date"/>
+		<result property="customerId" column="customer_id"/>
+	</resultMap>
+	<!-- ReadAll, Create, Read, Update, Delete -->
+	<select id="readAll" resultMap="result">
+		SELECT * FROM payment;
+	</select>
+	<select id="read" parameterType="int" resultMap="result">
+		SELECT * FROM payment WHERE id = #{id};
+	</select>
+	<insert id="create" parameterType="Payment">
+		INSERT INTO payment (id, amount, date, customer_id)
+		VALUES (#{id}, #{amount}, #{date}, #{customerId});
+	</insert>
+	<update id = "update" parameterType="Payment">
+		UPDATE payment SET amount=#{amount}, date=#{date},customer_id=#{customerId},
+		WHERE id = #{id};
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM payment WHERE id=#{id};
+	</delete>
+</mapper>
