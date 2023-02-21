@@ -46,4 +46,10 @@ public class LoginHandler {
 		uDAO.create(user);
 		aDAO.create(agent);
     }
+
+    public static void main(String[] args){
+        //addAgent(1, "bob@yahoo.com", "12345", "Bob", "Harris", "123 456 7890", 1);
+        UserDAO ud = new UserDAO();
+        IOManager.getInstance().println(ud.read(1));
+    }
 }

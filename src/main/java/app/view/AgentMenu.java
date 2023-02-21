@@ -8,7 +8,6 @@ import java.util.List;
 
 
 public class AgentMenu implements IMenu {
-
     private static final IOManager IO = IOManager.getInstance();
 
     private List<Option> options = Arrays.asList(
