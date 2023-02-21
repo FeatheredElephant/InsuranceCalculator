@@ -1,12 +1,15 @@
 package app.view;
 
 import app.IOManager;
+import app.controller.Calculate;
 import app.exceptions.InvalidOptionSelectedException;
-import app.model.dao.daoclasses.InsuranceCalculatorDao;
-import app.model.dao.daoclasses.InsurancePlanDAO;
+import app.model.dao.daoclasses.*;
+import app.model.domains.*;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class CustomerMenu implements IMenu {
 
@@ -77,6 +80,24 @@ public class CustomerMenu implements IMenu {
     }
 
     public void calculateInsurance() {
-        InsurancePlanDAO ipDAO = new InsurancePlanDAO();
+        Scanner input = new Scanner(System.in);
+        BigDecimal yearlyRate;
+
+        IO.println("Enter vehicle id:");
+        int vehicleId = Integer.parseInt(input.nextLine());
+        VehicleDAO vehicleDAO = new VehicleDAO();
+        Vehicle vehicle = vehicleDAO.read(vehicleId);
+
+        DriverDAO driverDAO = new DriverDAO();
+        List<Driver> drivers = driverDAO.readAll();
+
+        TicketDAO ticketDAO = new TicketDAO();
+        List<Ticket> tickets = ticketDAO.readAll();
+
+        AccidentDAO accidentDAO = new AccidentDAO();
+        List<Accident> accidents = accidentDAO.readAll();
+
+        // yearlyRate = Calculate.calculate(vehicle, drivers, accidents, tickets);
+        // IO.println("The yearly rate is " + yearlyRate);
     }
 }
