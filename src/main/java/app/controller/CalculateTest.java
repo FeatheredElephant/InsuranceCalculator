@@ -48,6 +48,6 @@ public class CalculateTest {
         accidents.add(accident3);
 
         double totalCost = Calculate.calculate(plan, vehicle1,drivers, accidents, tickets);
-        System.out.println("Total cost for a year: " + totalCost);
+        System.out.println("Total cost for 6 months: " + totalCost);
     }
 }

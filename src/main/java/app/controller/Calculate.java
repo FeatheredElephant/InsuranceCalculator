@@ -19,7 +19,12 @@ public class Calculate {
 
         // cost after date
         cost = Math.round(costAfterDate(startYear, numDrivers, cost));
-        System.out.println("Cost is " + cost);
+
+        // cost after number of accidents
+        cost = cost + cost * costAfterAccidents(accidents.size());
+
+        // cost after the number of tickets
+        cost = cost + cost * costAfterTickets(tickets.size());
 
         return cost;
     }
@@ -28,16 +33,30 @@ public class Calculate {
         int cutOffYear = Year.CutOffYear.getDate();
 
         double interestRate = InterestRate.TWENTY.getRate() / numDrivers;
-        System.out.println("interest rate is " + interestRate);
 
         if (startYear > cutOffYear) {
             monthlyCost += monthlyCost * interestRate;
-            System.out.println("Monthly cost is " + monthlyCost);
         } else {
             interestRate = InterestRate.TEN.getRate() / numDrivers;
             monthlyCost += monthlyCost * interestRate;
         }
 
         return monthlyCost;
+    }
+
+    public static double costAfterAccidents(int numOfAccidents) {
+        if (numOfAccidents > 5)
+            return InterestRate.FOURTY.getRate();
+        else if (numOfAccidents < 5 && numOfAccidents > 1)
+            return InterestRate.TWENTY_FIVE.getRate();
+        return 0;
+    }
+
+    public static double costAfterTickets(int numOfTickets) {
+        if (numOfTickets > 7)
+            return InterestRate.FOURTY.getRate();
+        else if (numOfTickets < 7 && numOfTickets > 1)
+            return InterestRate.TWENTY.getRate();
+        return 0;
     }
 }
