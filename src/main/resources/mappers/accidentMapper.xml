@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "public-id" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="accident">
-
     <resultMap id="result" type="accident">
-        <result property="id" column="accident_id"/>
-        <result property="cost" column="cost"/>
-        <result property="accidents" column="accidents"/>
+        <result property="id" column="id"/>
+        <result property="date" column="date"/>
+        <result property="driverId" column="driver_id"/>
         <result property="vehicleId" column="vehicle_id"/>
-        <result property="drivingId" column="driving_id"/>
+        <result property="description" column="description"/>
     </resultMap>
-
     <!-- ReadAll, Create, Read, Update, Delete -->
     <select id="readAll" resultMap="result">
         SELECT * FROM accident;
     </select>
     <select id="read" parameterType="int" resultMap="result">
-        SELECT * FROM accident WHERE accident_id = #{id};
+        SELECT * FROM accident WHERE id = #{id};
     </select>
     <insert id="create" parameterType="Accident">
-        INSERT INTO accident (accident_id, cost, accidents, vehicle_id, driving_id)
-        VALUES (#{id}, #{cost}, #{accidents}, #{vehicleId}, #{drivingId});
+        INSERT INTO accident (id, date, driver_id, vehicle_id, description)
+        VALUES (#{id}, #{date}, #{driverId}, #{vehicleId}, #{description});
     </insert>
     <update id = "update" parameterType="Accident">
-        UPDATE accident SET cost=#{cost}, accidents=#{accidents},
-        vehicle_id = #{vehicleId}, driving_id = #{drivingId}
-        WHERE accident_id=#{id};
+        UPDATE accident SET date=#{date}, driver_id=#{driverId},
+        vehicle_id = #{vehicleId}, description = #{description}
+        WHERE id=#{id};
     </update>
     <delete id="delete" parameterType="int">
-        DELETE FROM accident WHERE accident_id=#{id};
+        DELETE FROM accident WHERE id=#{id};
     </delete>
 </mapper>

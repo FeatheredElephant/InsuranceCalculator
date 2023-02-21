@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "public-id" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="driver">
+	<resultMap id="result" type="driver">
+		<result property="id" column="id"/>
+		<result property="firstname" column="first_name"/>
+		<result property="lastname" column="last_name"/>
+		<result property="dateOfBirth" column="date_of_birth"/>
+		<result property="agentId" column="agent_id"/>
+	</resultMap>
+	<!-- ReadAll, Create, Read, Update, Delete -->
+	<select id="readAll" resultMap="result">
+		SELECT * FROM driver;
+	</select>
+	<select id="read" parameterType="int" resultMap="result">
+		SELECT * FROM driver WHERE id = #{id};
+	</select>
+	<insert id="create" parameterType="Driver">
+		INSERT INTO driver (id, first_name, last_name, date_of_birth, agent_id)
+		VALUES (#{id}, #{firstname}, #{lastname}, #{dateOfBirth},#{agentId});
+	</insert>
+	<update id = "update" parameterType="Driver">
+		UPDATE driver SET first_name=#{firstname}, last_name=#{lastname},date_of_birth=#{dateOfBirth},
+		agent_id=#{agentId}
+		WHERE id = #{id};
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM driver WHERE id=#{id};
+	</delete>
+</mapper>
