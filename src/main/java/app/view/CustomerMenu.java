@@ -81,7 +81,12 @@ public class CustomerMenu implements IMenu {
 
     public void calculateInsurance() {
         Scanner input = new Scanner(System.in);
-        BigDecimal yearlyRate;
+        double yearlyRate;
+
+        IO.println("Enter insurance id:");
+        int insuranceId = Integer.parseInt(input.nextLine());
+        InsurancePlanDAO insuranceDAO = new InsurancePlanDAO();
+        InsurancePlan insurancePlan = insuranceDAO.read(insuranceId);
 
         IO.println("Enter vehicle id:");
         int vehicleId = Integer.parseInt(input.nextLine());
@@ -97,7 +102,7 @@ public class CustomerMenu implements IMenu {
         AccidentDAO accidentDAO = new AccidentDAO();
         List<Accident> accidents = accidentDAO.readAll();
 
-        // yearlyRate = Calculate.calculate(vehicle, drivers, accidents, tickets);
-        // IO.println("The yearly rate is " + yearlyRate);
+        yearlyRate = Calculate.calculate(insurancePlan, vehicle, drivers, accidents, tickets);
+        IO.println("The yearly rate is " + yearlyRate);
     }
 }
